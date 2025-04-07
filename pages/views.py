@@ -41,6 +41,8 @@ def contact(request):
             email = form.cleaned_data['email']
             content = form.cleaned_data['content']
 
+    
+
             
             
             # Send email

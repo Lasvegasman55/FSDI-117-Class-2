@@ -7,20 +7,15 @@ from pathlib import Path
 import certifi
 import environ
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # create a secure connection
 os.environ["SSL_CERT_FILE"] = certifi.where()
 
 # load env file
 env = environ.Env()
-environ.Env.read_env()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-replace-this-with-a-real-key-in-production'
@@ -31,7 +26,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-# In settings.py, add 'projects' to INSTALLED_APPS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,10 +36,6 @@ INSTALLED_APPS = [
     'pages',
     'projects',  
 ]
-
-# Also add this for image uploads
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,6 +64,16 @@ TEMPLATES = [
         },
     },
 ]
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development
+# If you want to use actual email delivery, comment out the line above and uncomment these:
+# EMAIL_HOST = 'smtp.gmail.com'  # For Gmail, use smtp.gmail.com
+# EMAIL_PORT = 587
+# EMAIL_USE_SSL = False
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = env('SMTP_EMAIL', default='')  
+# EMAIL_HOST_PASSWORD = env('SMTP_PASS', default='')
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -114,8 +114,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Media files (User uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Email settings (for contact form)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development
