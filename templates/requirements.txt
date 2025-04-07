@@ -1,0 +1,4 @@
+Django==5.1
+python-dotenv==1.0.1
+whitenoise==6.7.0
+gunicorn==21.2.0  # For production deployment

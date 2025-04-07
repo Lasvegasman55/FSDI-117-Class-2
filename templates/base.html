@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        :root {
+            --surface-color: #6a4ae0;
+            --surface-color-light: #7d61e4;
+            --text-color: #333;
+            --accent-color: #ff6b6b;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f8;
+            color: var(--text-color);
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left-side">
+            <div class="hamburger-menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="logo">Michael</div>
+        </div>
+        <div class="header-right-side">
+            <div class="nav-options">
+                <a href="#about">ABOUT ME</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#contact">CONTACT ME</a>
+            </div>
+        </div>
+    </header>
+    
+    {% block content %}
+    {% endblock content %}
+    
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 MichaelMatthews2024@gmail.com. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="{% static 'js/hamburger.js' %}"></script>
+</body>
+</html>

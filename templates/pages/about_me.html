@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Michael - Portfolio{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 60px 20px;">
+        <h1>Hello, I'm Michael</h1>
+        <p>Web Developer & UI/UX Designer crafting beautiful digital experiences</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+      </div>
+    
+    <!-- Bio Section -->
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+        </div>
+        
+        <div class="bio-container">
+            <div class="bio-image">
+                <img src="{% static 'img/palms.jpg' %}" alt="Michael Matthews" class="profile-photo">
+            </div>
+            <div class="bio-content">
+                <h3>Michael Matthews</h3>
+                <h4>Full-Stack Developer</h4>
+                <p>I'm a passionate developer with over 5 years of experience building web applications and interactive digital experiences. My journey in tech began with a curiosity about how websites work, which evolved into a career crafting elegant solutions for complex problems.</p>
+                <p>Specializing in modern JavaScript frameworks and responsive design, I strive to create applications that are not only functional but also intuitive and accessible to all users. My approach combines technical expertise with creative thinking to deliver projects that exceed expectations.</p>
+                <div class="bio-details">
+                    <div class="bio-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Las Vegas, NV</span>
+                    </div>
+                    <div class="bio-detail">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>B.S. in Computer Science</span>
+                    </div>
+                    <div class="bio-detail">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Available for freelance</span>
+                    </div>
+                </div>
+                <div class="skills-wrapper">
+                    <div class="skills-label">
+                        <h3>My Skills</h3>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill">HTML/CSS</div>
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">React</div>
+                        <div class="skill">Node.js</div>
+                        <div class="skill">Python</div>
+                        <div class="skill">UI/UX Design</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>My Projects</h2>
+        </div>
+        
+        <div class="projects-container">
+            <!-- Project 1 -->
+          <!-- Project 1 -->
+<div class="project-card">
+    <img src="{% static 'img/Ecommerce.jpg' %}" alt="project image">
+    <div class="project-content">
+        <h3>E-commerce Website</h3>
+        <p>A fully responsive e-commerce platform with integrated payment processing and inventory management.</p>
+        <p>2021</p>
+        <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+        </div>
+        <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card">
+    <img src="{% static '/img/task.jpg' %}" alt="project image">
+    <div class="project-content">
+        <h3>Task Management App</h3>
+        <p>A productivity app that helps users organize tasks with features like drag-and-drop, reminders, and categories.</p>
+        <p>2022</p>
+        <div class="project-tags">
+            <span class="tag">Vue.js</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">CSS Grid</span>
+        </div>
+        <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-card">
+    <img src="{% static 'img/weather.jpg' %}" alt="project image">
+    <div class="project-content">
+        <h3>Weather Dashboard</h3>
+        <p>A weather application that provides real-time forecasts, interactive maps, and localized weather alerts.</p>
+        <p>2023</p>
+        <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Weather API</span>
+            <span class="tag">Chart.js</span>
+        </div>
+        <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+</div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Contact Me</h2>
+        </div>
+        
+        <div class="contact-container">
+            <a href="{% url 'contact' %}" class="cta-button">Send me a message</a>
+        </div>
+    </section>
+</main>
+{% endblock content %}

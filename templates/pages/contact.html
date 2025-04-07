@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+<section id="contact" class="contact-section center">
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message message-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div class="contact-container">
+        <form id="emailForm" method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            
+            <div class="contact-form">
+                <div>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <div class="error">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="full-width">
+                    {{ form.content }}
+                    {% if form.content.errors %}
+                    <div class="error">{{ form.content.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-buttons full-width">
+                    <button class="primary-button" type="submit">Send Message</button>
+                    <button class="secondary-button" type="button" onclick="this.form.reset()">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<style>
+    .messages {
+        max-width: 800px;
+        margin: 0 auto 20px;
+    }
+    
+    .message {
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .message-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    
+    .message-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+    
+    .error {
+        color: #dc3545;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+    
+    .contact-section {
+        padding: 60px 20px;
+    }
+</style>
+{% endblock content %}

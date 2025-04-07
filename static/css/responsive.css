@@ -1,0 +1,169 @@
+/* responsive.css */
+
+/* 
+  Small (smaller than 640px)
+  Medium (641px to 1007px)
+*/
+
+/*Phone View*/
+@media(max-width:640px){
+  html {
+    font-size: 12px;
+  }
+  
+  /*Header*/
+  header {
+    flex-direction: row;
+    height: 60px;
+    padding: 0;
+    justify-content: space-between;
+  }
+  
+  .header-left-side {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right-side {
+    position: relative;
+    width: auto;
+    padding-right: 15px;
+  }
+  
+  /* Show hamburger menu on small screens */
+  .hamburger-menu {
+    display: block !important; /* Force display with !important */
+    z-index: 200; /* Ensure it's above other elements */
+  }
+  
+  /* Default state for nav-options on mobile is hidden */
+  .nav-options {
+    display: none !important; /* Force hide with !important */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: var(--surface-color);
+    width: 100vw;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    padding: 20px 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    animation: slideDown 0.3s ease;
+  }
+  
+  /* When menu is active (toggled by JavaScript) */
+  .nav-options.active {
+    display: flex !important; /* Force display with !important */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .nav-options a {
+    margin: 12px 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px 0;
+  }
+  
+  .nav-options a::after {
+    display: none;
+  }
+  
+  .nav-options a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Animation for mobile menu dropdown */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Bio Section Responsive */
+  .bio-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+  }
+  
+  .bio-image {
+    flex: 0 0 100%;
+    max-width: 200px;
+  }
+  
+  .bio-details {
+    justify-content: center;
+  }
+  
+  .skills-container {
+    justify-content: center;
+  }
+  
+  /* Skills wrapper responsive */
+  .skills-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 70px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  /* Projects Section */
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-form .full-width {
+    grid-column: 1;
+  }
+  
+  /* Adjust footer for mobile */
+  footer {
+    padding: 20px 15px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 641px) and (max-width: 1007px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+  
+  .nav-options {
+    gap: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}

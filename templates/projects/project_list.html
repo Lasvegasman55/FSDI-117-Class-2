@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<section class="projects-section">
+    <div class="section-title">
+        <h2>My Projects</h2>
+    </div>
+    
+    <div class="projects-container">
+        {% for project in projects %}
+        <div class="project-card">
+            {% if project.image %}
+            <div class="project-image">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+            </div>
+            {% else %}
+            <div class="project-image"></div>
+            {% endif %}
+            <div class="project-content">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description|truncatechars:100 }}</p>
+                <div class="project-tags">
+                    {% for skill in project.skills.all %}
+                    <span class="tag">{{ skill.name }}</span>
+                    {% endfor %}
+                </div>
+                <div class="project-links">
+                    {% if project.demo_url %}
+                    <a href="{{ project.demo_url }}" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    {% endif %}
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    {% endif %}
+                    <a href="{% url 'project_detail' project.id %}"><i class="fas fa-info-circle"></i> Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No projects available yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
